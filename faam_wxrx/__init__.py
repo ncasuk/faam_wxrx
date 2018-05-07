@@ -1,0 +1,6 @@
+__author__ = "Axel Wellpott"
+__license__ = "GPL"
+__version__ = "0.1"
+__maintainer__ = "Axel Wellpott"
+__email__ = "axll@faam.ac.uk"
+__status__ = "Development"

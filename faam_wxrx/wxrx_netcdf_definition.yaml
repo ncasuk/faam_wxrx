@@ -1,0 +1,211 @@
+# AIMMS netcdf definition in YAML syntax
+#
+# GLOBAL ATTRIBUTES
+#
+global_attributes:
+
+- title:
+  - value: Standard AIMMS-20 data from %s on %s
+
+- AIMMS_files:
+  - value: daq_file
+
+- Date:
+  - value: date_str
+
+- TimeInterval:
+  - value: '%s-%s'
+
+- Conventions:
+  - value: CF-1.6
+
+- INSTITUTION:
+  - value: FAAM
+
+- SOURCE:
+  - value: FAAM BAE146 aircraft data
+
+- REFERENCES:
+  - value: http://www.faam.ac.uk
+
+- Description:
+  - value: Data from the Honeywell RDR-4B doppler weather radar.
+
+- Software_version:
+  - value: '%s'
+
+
+#
+# VARIABLES
+#
+variables:
+
+- TIME:
+  - dimensions: []
+  - data_type: f4
+  - _FillValue: -9999.0
+  - standard_name: time
+  - calendar: gregorian
+  - long_name: time of measurement
+  - units: 'seconds since %s'
+
+- bin:
+  - dimensions: [TIME,]
+  - data_type: i2
+  - values: []
+  - _FillValue: -9999.0
+  - standard_name: air_temperature
+
+- reflectivity:
+  - dimensions: [TIME,]
+  - data_type: byte
+  - values: []
+  - _FillValue: 255
+  - units: percent
+
+- PRES:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - standard_name: air_pressure
+  - long_name: AIMMS Static pressure
+  - units: hPa
+
+- U:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - standard_name: eastward_wind
+  - long_name: AIMMS eastwards wind component
+  - units: m s-1
+
+- V:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - standard_name: northward_wind
+  - long_name: AIMMS northwards wind component
+  - units: m s-1
+
+- W:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - standard_name: upward_air_velocity
+  - long_name: AIMMS vertical wind component
+  - units: m s-1
+
+- LAT:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - standard_name: latitude
+  - long_name: AIMMS GPS latitude
+  - units: degree_north
+
+- LON:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - standard_name: longitude
+  - long_name: AIMMS GPS longitude
+  - units: degree_east
+
+- ALT:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - standard_name: altitude
+  - long_name: AIMMS GPS altitude
+  - units: m
+
+- VN:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - standard_name: platform_speed_wrt_ground
+  - long_name: AIMMS northwards ground speed
+  - units: m s-1
+
+- VE:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - standard_name: platform_speed_wrt_ground
+  - long_name: AIMMS eastwards ground speed
+  - units: m s-1
+
+- VZ:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - standard_name: upward_air_velocity
+  - long_name: AIMMS vertical speed
+  - units: m s-1
+
+- ROLL:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - standard_name: platform_roll_angle
+  - long_name: AIMMS roll angle
+  - units: degree
+
+- PITCH:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - standard_name: platform_pitch_angle
+  - long_name: AIMMS pitch angle
+  - units: degree
+
+- HDG:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - standard_name: platform_yaw_angle
+  - long_name: AIMMS Heading angle
+  - units: degree
+
+- TAS:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - standard_name: platform_speed_wrt_air
+  - long_name: AIMMS True air speed
+  - units: m s-1
+
+- AOSS:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - long_name: AIMMS angle of sideslip (positive, flow from left)
+  - units: degree
+
+- DPAOA:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - long_name: AIMMS non-dimensional angle of attack differential pressure
+  - units: 1
+
+- DPAOSS:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - long_name: AIMMS non-dimensional angle of sideslip differential pressure
+  - units: degree
+
+- STATUS:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - long_name: AIMMS Status flag (0 - solution invalid)
+  - units: 1
+
+- AOA:
+  - dimensions: [TIME,]
+  - data_type: f4
+  - _FillValue: -9999.0
+  - long_name: AIMMS angle of attack (positive, flow from below aircraft)
+  - units: degree
