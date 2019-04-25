@@ -75,7 +75,7 @@ class Arinc708(object):
        """
 
     # Define empty reflectivity as list of zeros
-    __EMPTY_DATA = map(int, list(512 * '0'))
+    __EMPTY_DATA = [0] * 512
 
     def __init__(self):
         pass
@@ -115,7 +115,7 @@ class Arinc708(object):
 
     def __rearrange_bits__(self, busword):
         """See page 2-12 in the manual."""
-        wb_list = [self.busword[8*i:8*(i+1)][::-1] for i in xrange(200)]
+        wb_list = [self.busword[8*i:8*(i+1)][::-1] for i in range(200)]
         self.busword = ''.join(wb_list)
 
     def __get_slave__(self):
@@ -235,7 +235,7 @@ class Arinc708(object):
         # check whether there it is at least one '1'
         # in the busword; take a short-cut, if not
         if '1' in self.busword[64:]:
-            data = [int(self.busword[ix:ix+3][::-1], 2) for ix in xrange(64, 1600, 3)]
+            data = [int(self.busword[ix:ix+3][::-1], 2) for ix in range(64, 1600, 3)]
         else:
             data = self.__EMPTY_DATA
         return data
